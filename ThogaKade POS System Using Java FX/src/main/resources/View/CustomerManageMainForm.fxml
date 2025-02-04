@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="555.0" prefWidth="600.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Customer.CustomerManageMainFormController">
+   <children>
+      <!-- Header -->
+      <Rectangle arcHeight="10.0" arcWidth="10.0" fill="#1976D2" height="72.0" width="600.0" />
+      <Label layoutX="180.0" layoutY="23.0" text="Customer Management" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Bold" size="24.0" />
+         </font>
+      </Label>
+
+      <!-- Input Fields -->
+      <TextField fx:id="cusId" layoutX="141.0" layoutY="99.0" promptText="Customer ID" style="-fx-background-color: #FFFFFF; -fx-border-color: #DADADA;" />
+      <TextField fx:id="cusName" layoutX="434.0" layoutY="99.0" promptText="Customer Name" style="-fx-background-color: #FFFFFF; -fx-border-color: #DADADA;" />
+      <TextField fx:id="cusAddress" layoutX="140.0" layoutY="137.0" promptText="Customer Address" style="-fx-background-color: #FFFFFF; -fx-border-color: #DADADA;" />
+      <TextField fx:id="cusSalary" layoutX="434.0" layoutY="136.0" promptText="Customer Salary" style="-fx-background-color: #FFFFFF; -fx-border-color: #DADADA;" />
+
+      <!-- Labels -->
+      <Label layoutX="16.0" layoutY="103.0" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 14; -fx-text-fill: #333333;" text="Customer ID:">
+         <font>
+            <Font size="8.0" />
+         </font></Label>
+      <Label layoutX="15.0" layoutY="141.0" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 14; -fx-text-fill: #333333;" text="Customer Address:" />
+      <Label layoutX="312.0" layoutY="103.0" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 14; -fx-text-fill: #333333;" text="Customer Name:" />
+      <Label layoutX="312.0" layoutY="141.0" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 14; -fx-text-fill: #333333;" text="Customer Salary:" />
+
+      <!-- Buttons -->
+      <Button layoutX="525.0" layoutY="176.0" mnemonicParsing="false" onAction="#viewCustomerOnAction" style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 14;" text="View" />
+      <Button layoutX="476.0" layoutY="176.0" mnemonicParsing="false" onAction="#addaCustomerOnAction" style="-fx-background-color: #2ECC71; -fx-text-fill: white; -fx-font-size: 14;" text="Add" />
+      <Button layoutX="412.0" layoutY="176.0" mnemonicParsing="false" onAction="#deleteCustomerOnAction" style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-font-size: 14;" text="Delete" />
+      <Button layoutX="343.0" layoutY="176.0" mnemonicParsing="false" onAction="#updateCustomerOnAction" style="-fx-background-color: #F39C12; -fx-text-fill: white; -fx-font-size: 14;" text="Update" />
+      <Button layoutX="278.0" layoutY="176.0" mnemonicParsing="false" onAction="#searchCustomerOnAction" style="-fx-background-color: #1ABC9C; -fx-text-fill: white; -fx-font-size: 14;" text="Search" />
+      <Button layoutX="21.0" layoutY="176.0" mnemonicParsing="false" onAction="#btnItemOnAction" style="-fx-background-color: #9B59B6; -fx-text-fill: white; -fx-font-size: 14;" text="Item CRUD" />
+
+      <!-- Table View -->
+      <TableView fx:id="tblCustomer" layoutX="26.0" layoutY="221.0" prefHeight="322.0" prefWidth="552.0" style="-fx-background-color: white; -fx-border-color: #DADADA;">
+         <columns>
+            <TableColumn fx:id="cusIdCol" prefWidth="120.0" text="Customer ID" />
+            <TableColumn fx:id="cusNameCol" prefWidth="150.0" text="Customer Name" />
+            <TableColumn fx:id="cusAddressCol" prefWidth="150.0" text="Customer Address" />
+            <TableColumn fx:id="cusSalaryCol" prefWidth="130.0" text="Customer Salary" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
