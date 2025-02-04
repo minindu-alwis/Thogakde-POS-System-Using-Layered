@@ -12,6 +12,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.jasypt.util.text.BasicTextEncryptor;
+import service.ServiceFactory;
+import service.custome.SignupService;
+import util.ServiceType;
 
 
 import java.io.IOException;
@@ -25,13 +28,13 @@ public class SignUpFormController implements Initializable {
     public Label userIdDisplay;
     public TextField txtEmail;
 
-
+    private SignupService signupService= ServiceFactory.getInstance().getServiceType(ServiceType.SIGNUP);
     public void btnSingUpOnAction(ActionEvent actionEvent) throws IOException {
         String password=encryptPassword();
 
         boolean isRegistered = false;
         try {
-            isRegistered = SignupController.getInstance().registerUser(
+            isRegistered = signupService.registerUser(
                     new User(
                             userIdDisplay.getText(),
                             txtNewUserName.getText(),
@@ -67,7 +70,7 @@ public class SignUpFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String id= SignupController.getInstance().generateuserId();
+        String id= signupService.generateuserId();
         userIdDisplay.setText(id);
     }
 

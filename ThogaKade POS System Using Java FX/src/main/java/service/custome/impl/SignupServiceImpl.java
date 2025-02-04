@@ -1,20 +1,21 @@
-package Controllers.signup;
+package service.custome.impl;
 
 import DB.DBConnection;
 import Models.User;
+import service.custome.SignupService;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class SignupController implements SignupService {
+public class SignupServiceImpl implements SignupService {
 
-    private static SignupController instance;
+    private static SignupServiceImpl instance;
 
-    private SignupController() {}
+    private SignupServiceImpl() {}
 
-    public static synchronized SignupController getInstance() {
-        return instance == null ? instance = new SignupController() : instance;
+    public static synchronized SignupServiceImpl getInstance() {
+        return instance == null ? instance = new SignupServiceImpl() : instance;
     }
 
     @Override

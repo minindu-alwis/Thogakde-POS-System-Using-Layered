@@ -1,18 +1,19 @@
-package Controllers.order;
+package service.custome.impl;
 
 import DB.DBConnection;
 import Models.OrderDetail;
+import service.custome.OrderDetailsService;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class OrderDetailController implements OrderDetailsService {
+public class OrderDetailServiceImpl implements OrderDetailsService {
 
-    private static OrderDetailController instance;
+    private static OrderDetailServiceImpl instance;
 
-    public static OrderDetailController getInstance() {
-        return instance == null ? instance = new OrderDetailController() : instance;
+    public static OrderDetailServiceImpl getInstance() {
+        return instance == null ? instance = new OrderDetailServiceImpl() : instance;
     }
 
     @Override

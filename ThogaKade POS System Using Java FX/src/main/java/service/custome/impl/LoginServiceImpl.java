@@ -1,22 +1,23 @@
-package Controllers.login;
+package service.custome.impl;
 
 import DB.DBConnection;
 import org.jasypt.util.text.BasicTextEncryptor;
+import service.custome.LoginService;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class LoginController implements LoginService{
+public class LoginServiceImpl implements LoginService {
 
-    private static LoginController instance;
+    private static LoginServiceImpl instance;
 
-    private LoginController() {
+    private LoginServiceImpl() {
     }
 
-    public static LoginController getInstance() {
-        return instance == null ? instance = new LoginController() : instance;
+    public static LoginServiceImpl getInstance() {
+        return instance == null ? instance = new LoginServiceImpl() : instance;
     }
 
 

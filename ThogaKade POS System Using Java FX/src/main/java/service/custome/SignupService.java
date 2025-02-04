@@ -1,11 +1,12 @@
-package Controllers.signup;
+package service.custome;
 
 
 import Models.User;
+import service.SuperService;
 
 import java.sql.SQLException;
 
-public interface SignupService {
+public interface SignupService extends SuperService {
 
     boolean registerUser(User newUser) throws SQLException;
 

@@ -1,6 +1,5 @@
 package service.custome.impl;
 
-import Controllers.order.OrderDetailController;
 import DB.DBConnection;
 import Models.Order;
 import service.ServiceFactory;
@@ -12,7 +11,7 @@ import java.sql.*;
 
 public class OrderServiceImpl implements OrderService {
 
-    ItemService service = ServiceFactory.getInstance().getServiceType(ServiceType.ITEM);
+    ItemService itemService = ServiceFactory.getInstance().getServiceType(ServiceType.ITEM);
 
     private static OrderServiceImpl instance;
 
@@ -39,9 +38,9 @@ public class OrderServiceImpl implements OrderService {
             stm.setObject(3, order.getCustomerId());
             boolean isAddedOrder = stm.executeUpdate() > 0;
             if (isAddedOrder) {
-                boolean addOrderDetails = OrderDetailController.getInstance().addOrderDetail(order.getOrderDetailList());
+                boolean addOrderDetails = OrderDetailServiceImpl.getInstance().addOrderDetail(order.getOrderDetailList());
                 if (addOrderDetails) {
-                    boolean updateStock = service.updateStock(order.getOrderDetailList());
+                    boolean updateStock = itemService.updateStock(order.getOrderDetailList());
                     if (updateStock) {
                         connection.commit();
                         return true;

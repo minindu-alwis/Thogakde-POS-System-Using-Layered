@@ -1,8 +1,6 @@
 package service;
 
-import service.custome.impl.CustomerServiceImpl;
-import service.custome.impl.ItemServiceImpl;
-import service.custome.impl.OrderServiceImpl;
+import service.custome.impl.*;
 import util.ServiceType;
 
 public class ServiceFactory {
@@ -17,6 +15,8 @@ public class ServiceFactory {
             case CUSTOMER:return (T) CustomerServiceImpl.getInstance();
             case ITEM:return (T)  ItemServiceImpl.getInstance();
             case ORDER:return (T)  OrderServiceImpl.getInstance();
+            case LOGIN:return (T) LoginServiceImpl.getInstance();
+            case SIGNUP:return (T) SignupServiceImpl.getInstance();
         }
         return null;
     }
