@@ -50,38 +50,17 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
 
-    public String generateId() {
-        try {
-            ResultSet rst = DBConnection.getInstance().getConnection().createStatement().executeQuery("SELECT id FROM customer ORDER BY id DESC LIMIT 1");
-            if (rst.next()) {
-                return rst.getString("id");
-            }
-            return null;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public String generateId() throws SQLException {
+      return customerDao.generateId();
     }
 
 
     public  ArrayList<String> getAllCustomerIds() throws SQLException {
-        ResultSet rst = DBConnection.getInstance().getConnection().createStatement().executeQuery("Select id From Customer");
-        ArrayList<String> cusids=new ArrayList<>();
-        while(rst.next()){
-            cusids.add(rst.getString(1));
-        }
-        return cusids;
+        return customerDao.getAllCustomerIds();
     }
 
-    public Customer searchCustomerforOrderForm(String customerid) {
-        try {
-            ResultSet rst = DBConnection.getInstance().getConnection().createStatement().executeQuery("SELECT name,address,salary FROM customer WHERE id='" + customerid + "'");
-            if (rst.next()) {
-                return new Customer(null, rst.getString("name"), rst.getString("address"), rst.getDouble("salary"));
-            }
-            return null;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+    public Customer searchCustomerforOrderForm(String customerid) throws SQLException {
+       return customerDao.searchCustomerforOrderForm(customerid);
     }
 
 }

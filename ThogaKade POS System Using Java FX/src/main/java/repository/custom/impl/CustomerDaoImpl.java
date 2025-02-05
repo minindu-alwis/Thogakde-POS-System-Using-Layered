@@ -86,4 +86,31 @@ public class CustomerDaoImpl implements CustomerDao {
         return customerList;
     }
 
+    @Override
+    public String generateId() throws SQLException {
+        ResultSet rst = DBConnection.getInstance().getConnection().createStatement().executeQuery("SELECT id FROM customer ORDER BY id DESC LIMIT 1");
+        if (rst.next()) {
+            return rst.getString("id");
+        }
+        return null;
+    }
+
+    @Override
+    public ArrayList<String> getAllCustomerIds() throws SQLException {
+        ResultSet rst = DBConnection.getInstance().getConnection().createStatement().executeQuery("Select id From Customer");
+        ArrayList<String> cusids=new ArrayList<>();
+        while(rst.next()){
+            cusids.add(rst.getString(1));
+        }
+        return cusids;
+    }
+
+    @Override
+    public Customer searchCustomerforOrderForm(String customerid) throws SQLException {
+        ResultSet rst = DBConnection.getInstance().getConnection().createStatement().executeQuery("SELECT name,address,salary FROM customer WHERE id='" + customerid + "'");
+        if (rst.next()) {
+            return new Customer(null, rst.getString("name"), rst.getString("address"), rst.getDouble("salary"));
+        }
+        return null;
+    }
 }

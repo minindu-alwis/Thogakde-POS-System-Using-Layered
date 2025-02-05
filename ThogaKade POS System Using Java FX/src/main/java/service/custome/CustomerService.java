@@ -19,9 +19,9 @@ public interface CustomerService extends SuperService {
 
     Customer searchCustomer(String customerid) throws SQLException;
 
-    String generateId();
+    String generateId() throws SQLException;
 
     ArrayList<String> getAllCustomerIds() throws SQLException;
 
-    Customer searchCustomerforOrderForm(String customerid);
+    Customer searchCustomerforOrderForm(String customerid) throws SQLException;
 }
