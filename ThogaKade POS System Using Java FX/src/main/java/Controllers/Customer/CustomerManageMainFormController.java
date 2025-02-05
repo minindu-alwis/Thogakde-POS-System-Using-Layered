@@ -69,7 +69,7 @@ public class CustomerManageMainFormController implements Initializable {
         }
     }
 
-    public void deleteCustomerOnAction(ActionEvent actionEvent) {
+    public void deleteCustomerOnAction(ActionEvent actionEvent) throws SQLException {
 
         Optional<ButtonType> result = new Alert(Alert.AlertType.CONFIRMATION, "Are You Sure Want to Delete it?.", ButtonType.YES, ButtonType.NO).showAndWait();
         ButtonType buttonType = result.orElse(ButtonType.NO);
@@ -96,7 +96,7 @@ public class CustomerManageMainFormController implements Initializable {
         }
     }
 
-    public void searchCustomerOnAction(ActionEvent actionEvent) {
+    public void searchCustomerOnAction(ActionEvent actionEvent) throws SQLException {
 
 
 

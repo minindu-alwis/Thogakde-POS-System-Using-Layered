@@ -13,11 +13,11 @@ public interface CustomerService extends SuperService {
 
     boolean saveCustomer(Customer customer) throws SQLException;
 
-    boolean updateCustomer(Customer customer);
+    boolean updateCustomer(Customer customer) throws SQLException;
 
-    boolean deleteCustomer(String cusId);
+    boolean deleteCustomer(String cusId) throws SQLException;
 
-    Customer searchCustomer(String customerid);
+    Customer searchCustomer(String customerid) throws SQLException;
 
     String generateId();
 
